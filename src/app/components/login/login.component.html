@@ -1,0 +1,25 @@
+<article class="half">
+      <h1>FASTEXP</h1>
+      <div class="tabs">
+            <span class="tab signin active"><a [routerLink]="/login">Sign in</a></span>
+            <span class="tab signup"><a [routerLink]="['/register']">Sign up</a></span>
+      </div>
+<div class="signin-cont cont">
+     <form name="form" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
+       <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
+            <input type="text" name="username" [(ngModel)]="model.username" class="inpt" #username="ngModel" required="required">
+            <label for="email">Nombre de usuario</label>
+       </div>
+       <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
+            <input type="password" name="password" class="inpt" [(ngModel)]="model.password" required="required">
+            <label for="password">Contraseña</label>
+            <input type="checkbox" id="remember" class="checkbox" checked>
+            <label for="remember">Recordarme</label>
+            <div class="submit-wrap">
+                  <input type="submit" value="Sign in" class="submit">
+                  <a href="#" class="more">Olvido su contrasena?</a>
+            </div>
+        </div>
+      </form>
+</div>
+</article>
