@@ -10,7 +10,7 @@ export class PatientService {
 
   constructor( private http: HttpClient) { }
 
-  getUser(): Observable<Patient[]> {
+  getPatient(): Observable<Patient[]> {
     return this.http.get<Patient[]>(this.serviceUrl);
   }
 

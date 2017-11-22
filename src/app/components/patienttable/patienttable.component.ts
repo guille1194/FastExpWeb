@@ -11,7 +11,7 @@ import { Patient } from '../../models/patient.model';
 })
 export class PatienttableComponent implements OnInit {
 
-  dataSource = new DataSource(this.patientService);
+  dataSource = new PatientDataSource(this.patientService);
   displayedColumns = ['name', 'email', 'phone', 'company'];
 
   constructor( private patientService: PatientService) { }
@@ -22,7 +22,7 @@ export class PatienttableComponent implements OnInit {
 }
 
 export class PatientDataSource extends DataSource<any> {
-  constructor( private userService: PatientService) {
+  constructor( private patientService: PatientService) {
     super();
   }
 
