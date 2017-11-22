@@ -14,6 +14,9 @@ import { AlertComponent } from './directives/index';
 import { AuthGuard } from './guards/index';
 import { AlertService, AuthenticationService, UserService } from './services/index';
 
+import { MatTableModule } from '@angular/material';
+
+import { PatienttableComponent } from './components/patienttable/patienttable.component';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
@@ -32,6 +35,7 @@ import { RegisterComponent } from './components/register/register.component';
     BrowserModule,
     FormsModule,
     HttpModule,
+    MatTableModule,
     APP_ROUTING
   ],
   providers: [
