@@ -12,7 +12,7 @@ import { BaseRequestOptions } from '@angular/http';
 
 import { AlertComponent } from './directives/index';
 import { AuthGuard } from './guards/index';
-import { AlertService, AuthenticationService, UserService } from './services/index';
+import { AlertService, AuthenticationService, UserService, PatientService } from './services/index';
 
 import { MatTableModule } from '@angular/material';
 
@@ -29,6 +29,7 @@ import { RegisterComponent } from './components/register/register.component';
     AlertComponent,
     HomeComponent,
     LoginComponent,
+    PatienttableComponent,
     RegisterComponent
   ],
   imports: [
