@@ -5,7 +5,7 @@ import { HttpModule } from '@angular/http';
 
 import { APP_ROUTING } from './app.routes';
 
-import { fakeBackendProvider } from './helpers/index';
+import { customHttpProvider } from './helpers/index';
 import { MockBackend, MockConnection } from '@angular/http/testing';
 import { BaseRequestOptions } from '@angular/http';
 
@@ -48,7 +48,7 @@ import { RegisterComponent } from './components/register/register.component';
     AlertService,
     AuthenticationService,
     UserService,
-    fakeBackendProvider,
+    customHttpProvider,
     PatientService,
     MockBackend,
     BaseRequestOptions
