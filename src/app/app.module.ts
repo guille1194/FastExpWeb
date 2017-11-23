@@ -14,7 +14,9 @@ import { AlertComponent } from './directives/index';
 import { AuthGuard } from './guards/index';
 import { AlertService, AuthenticationService, UserService, PatientService } from './services/index';
 
+import { HttpClientModule } from '@angular/common/http';
 import { MatTableModule } from '@angular/material';
+import { NgxQRCodeModule } from 'ngx-qrcode2';
 
 import { PatienttableComponent } from './components/patienttable/patienttable.component';
 import { AppComponent } from './app.component';
@@ -36,7 +38,9 @@ import { RegisterComponent } from './components/register/register.component';
     BrowserModule,
     FormsModule,
     HttpModule,
+    HttpClientModule,
     MatTableModule,
+    NgxQRCodeModule,
     APP_ROUTING
   ],
   providers: [
@@ -45,6 +49,7 @@ import { RegisterComponent } from './components/register/register.component';
     AuthenticationService,
     UserService,
     fakeBackendProvider,
+    PatientService,
     MockBackend,
     BaseRequestOptions
   ],

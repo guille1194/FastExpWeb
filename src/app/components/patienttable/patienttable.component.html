@@ -1,20 +1,24 @@
 <div>
   <mat-table [dataSource]="dataSource">
     <ng-container matColumnDef="name">
-      <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
-      <mat-cell *matCellDef="let user"> {{patient.name}}</mat-cell>
+      <mat-header-cell *matHeaderCellDef> Nombre </mat-header-cell>
+      <mat-cell *matCellDef="let patient"> {{patient.name}}</mat-cell>
     </ng-container>
       <ng-container matColumnDef="email">
-        <mat-header-cell *matHeaderCellDef> Email </mat-header-cell>
-        <mat-cell *matCellDef="let user"> {{patient.email}}</mat-cell>
+        <mat-header-cell *matHeaderCellDef> Correo </mat-header-cell>
+        <mat-cell *matCellDef="let patient"> {{patient.email}}</mat-cell>
       </ng-container>
     <ng-container matColumnDef="phone">
-      <mat-header-cell *matHeaderCellDef> Phone </mat-header-cell>
-      <mat-cell *matCellDef="let user"> {{patient.phone}}</mat-cell>
+      <mat-header-cell *matHeaderCellDef> Telefono </mat-header-cell>
+      <mat-cell *matCellDef="let patient"> {{patient.phone}}</mat-cell>
     </ng-container>
     <ng-container matColumnDef="company">
-      <mat-header-cell *matHeaderCellDef> Company </mat-header-cell>
-      <mat-cell *matCellDef="let user"> {{patient.company.name}}</mat-cell>
+      <mat-header-cell *matHeaderCellDef> Compania </mat-header-cell>
+      <mat-cell *matCellDef="let patient"> {{patient.company.name}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="QR">
+      <mat-header-cell *matHeaderCellDef> Generar QR </mat-header-cell>
+      <button (click)="createCode()">Crear Codigo</button>
     </ng-container>
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
     <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>

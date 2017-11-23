@@ -10,7 +10,8 @@ import { Patient } from '../../models/patient.model';
   styleUrls: ['./patienttable.component.css']
 })
 export class PatienttableComponent implements OnInit {
-
+  qrData = null;
+  createdCode = null;
   dataSource = new PatientDataSource(this.patientService);
   displayedColumns = ['name', 'email', 'phone', 'company'];
 
@@ -18,6 +19,10 @@ export class PatienttableComponent implements OnInit {
 
   ngOnInit() {
   }
+
+  createCode() {
+     this.createdCode = this.qrData;
+   }
 
 }
 
