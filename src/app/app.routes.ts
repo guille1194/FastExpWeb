@@ -6,9 +6,9 @@ import { AuthGuard } from './guards/index';
 import { PatienttableComponent } from './components/patienttable/patienttable.component';
 
 const APP_ROUTES: Routes = [
-   { path: '', component: PatienttableComponent },
+   { path: 'patient', component: PatienttableComponent },
    { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
-   { path: 'login', component: LoginComponent },
+   { path: '', component: LoginComponent },
    { path: 'register', component: RegisterComponent },
 
    { path: '**', redirectTo: '' }
