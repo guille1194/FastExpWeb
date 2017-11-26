@@ -8,7 +8,6 @@ const patientRoutes: Routes = [
         path: 'patient',
         component: PatienttableComponent,
         data: {
-            isLogin: true,
             title: PatientConstants.PATIENT_TITLE
         }
     }
