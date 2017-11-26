@@ -11,7 +11,7 @@ export class RegisterService {
     constructor(private http: Http,
                 private authService: AuthService) { }
 
-    signIn(userName: string, password: string ){
+    signUp(userName: string, password: string, name: string, lastName:string, email:string ){
         let url = environment.apiUrl + RegisterConstants.API_SIGN_UP;
 
         let options = this.authService.getRequestOptions();
@@ -19,7 +19,9 @@ export class RegisterService {
         let data = JSON.stringify({
             userName: userName,
             password: password,
-            name: name
+            name: name,
+            lastName: lastName,
+            email: email
         });
 
         return this.http.post(url, data, options)
