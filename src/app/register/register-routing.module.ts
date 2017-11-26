@@ -8,7 +8,7 @@ const registerRoutes: Routes = [
         path: 'register',
         component: RegisterComponent,
         data: {
-            isLogin: true,
+            isSignup: true,
             title: RegisterConstants.REGISTER_TITLE
         }
     }
