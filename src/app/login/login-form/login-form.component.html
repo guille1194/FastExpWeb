@@ -1,0 +1,17 @@
+<div class="row">
+    <div class="col-md-12">
+        <form [formGroup]="formGroup" (ngSubmit)="login()">
+            <fieldset>
+                <div class="form-group">
+                    <input [(ngModel)]="user.userName" name="userName" #userName formControlName="userName" class="form-control" placeholder="User Name" type="text">
+                </div>
+                <div class="form-group">
+                    <input  [(ngModel)]="user.password" name="password" #password formControlName="password" class="form-control" placeholder="Password" type="password" value="">
+                </div>
+                <div class="btn-toolbar">
+                    <input [disabled]="!formGroup.valid" class="btn btn-primary" type="submit" value="Login">
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>
