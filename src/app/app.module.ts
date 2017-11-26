@@ -8,6 +8,12 @@ import { CoreModule } from './core/core.module';
 import { AppComponent } from './app.component';
 
 import { LoginModule } from './login/login.module';
+import { RegisterModule } from './register/register.module';
+import { PatientModule } from './patienttable/patient.module';
+
+import { HttpClientModule } from '@angular/common/http';
+import { MatTableModule } from '@angular/material';
+import { NgxQRCodeModule } from 'ngx-qrcode2';
 
 @NgModule({
   declarations: [
@@ -19,7 +25,10 @@ import { LoginModule } from './login/login.module';
     CoreModule,
     FormsModule,
     HttpModule,
-    LoginModule
+    LoginModule,
+    HttpClientModule,
+    MatTableModule,
+    NgxQRCodeModule,
   ],
   bootstrap: [AppComponent]
 })
