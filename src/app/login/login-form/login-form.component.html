@@ -7,7 +7,7 @@
       </div>
   <div class="content">
       <div class="signin-cont cont">
-        <form [formGroup]="formGroup" (ngSubmit)="register()">
+        <form [formGroup]="formGroup" (ngSubmit)="login()">
             <fieldset>
                 <div class="form-group">
                     <input [(ngModel)]="user.userName" name="userName" #userName formControlName="userName" class="form-control inpt" placeholder="User Name" type="text">
