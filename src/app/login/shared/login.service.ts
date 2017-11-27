@@ -2,14 +2,15 @@ import {Injectable} from '@angular/core';
 import {Http} from '@angular/http';
 import {environment} from '../../../environments/environment';
 import {AuthService} from '../../core/services/auth.service';
+import {UtilitiesService} from "../../core/services/utilities.service";
 import {LoginConstants} from '../shared/login.config';
-
 import 'rxjs/add/operator/map';
 
 @Injectable()
 export class LoginService {
     constructor(private http: Http,
-                private authService: AuthService) {
+                private authService: AuthService,
+                private utilitiesService: UtilitiesService) {
     }
 
     signIn(userName: string, password: string) {
@@ -23,13 +24,12 @@ export class LoginService {
         });
 
         return this.http.post(url, data, options)
-            .map(response => {
-                response = response.json();
+            .map(res => {
+                let data = this.utilitiesService.extractDataFromJSON(res);
+                localStorage.removeItem('currentSession');
+                localStorage.setItem('currentSession', JSON.stringify({user: data.user, token: data.token}));
 
-                localStorage.setItem('currentUser', JSON.stringify(response));
-
-                return response;
+                return data;
             });
-
     }
 }

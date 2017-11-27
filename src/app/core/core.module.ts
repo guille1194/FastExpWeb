@@ -1,9 +1,10 @@
-import { NgModule, Optional, SkipSelf } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule, Optional, SkipSelf} from '@angular/core';
+import {CommonModule} from '@angular/common';
 
-import { AuthGuard } from './guards/auth.guard';
-import { AuthService } from './services/auth.service';
-import { AppRoutingModule } from '../app-routing.module';
+import {AuthGuard} from './guards/auth.guard';
+import {AuthService} from './services/auth.service';
+import {UtilitiesService} from './services/utilities.service';
+import {AppRoutingModule} from '../app-routing.module';
 
 @NgModule({
     imports: [
@@ -13,12 +14,13 @@ import { AppRoutingModule } from '../app-routing.module';
     exports: [
         AppRoutingModule
     ],
-    declarations: [
-    ],
+    declarations: [],
     providers: [
         AuthService,
-        AuthGuard
+        AuthGuard,
+        UtilitiesService
     ],
 })
 
-export class CoreModule {}
+export class CoreModule {
+}

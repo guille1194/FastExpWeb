@@ -13,10 +13,19 @@ export class AuthService {
         headers.append('Content-Type', 'application/json');
         headers.append('API_KEY', AppConstants.API_KEY);
 
+        let session = localStorage.getItem('currentSession');
+
+        if (session) {
+            let data = JSON.parse(session);
+            if (data.token) {
+                headers.append('USER_TOKEN', data.token);
+            }
+        }
+
         return new RequestOptions({ headers: headers });
     }
 
     logout() {
-        localStorage.removeItem('currentUser');
+        localStorage.removeItem('currentSession');
     }
 }

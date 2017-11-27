@@ -9,7 +9,7 @@ import {AppComponent} from './app.component';
 
 import {LoginModule} from './login/login.module';
 import {RegisterModule} from './register/register.module';
-import {PatientModule} from './patienttable/patient.module';
+import {PatientModule} from './patient/patient.module';
 
 import {HttpClientModule} from '@angular/common/http';
 import {NgxQRCodeModule} from 'ngx-qrcode2';

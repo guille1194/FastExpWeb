@@ -1,8 +1,8 @@
-import { Component, OnInit, Inject } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import { LoginService } from '../shared/login.service';
-import { LoginModel } from '../shared/login.model';
+import {Component, OnInit, Inject} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {Router} from '@angular/router';
+import {LoginService} from '../shared/login.service';
+import {LoginModel} from '../shared/login.model';
 
 @Component({
     selector: 'app-login',
@@ -15,11 +15,11 @@ export class LoginComponent implements OnInit {
 
     constructor(@Inject(FormBuilder) formBuilder: FormBuilder,
                 private loginService: LoginService,
-                private  router: Router){
+                private  router: Router) {
         this.formBuilder = formBuilder;
     }
 
-    ngOnInit(){
+    ngOnInit() {
         this.validateInputs(this.formBuilder);
     }
 
@@ -30,11 +30,10 @@ export class LoginComponent implements OnInit {
         });
     }
 
-    login(){
+    login() {
         this.loginService.signIn(this.user.userName, this.user.password)
             .subscribe(
                 data => {
-                    localStorage.setItem('currentSession', JSON.stringify(data));
                     this.router.navigate(['patient']);
                 },
                 error => {

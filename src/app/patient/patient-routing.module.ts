@@ -2,13 +2,13 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from '../core/guards/auth.guard';
 import { PatientConstants } from './shared/patient.config';
-import { PatienttableComponent } from './patienttable-form/patienttable.component';
+import { PatientListComponent } from './patient-list/patient-list.component';
 
 const patientRoutes: Routes = [
     {
         path: 'patient',
         canActivate: [AuthGuard],
-        component: PatienttableComponent,
+        component: PatientListComponent,
         data: {
             title: PatientConstants.PATIENT_TITLE
         }
