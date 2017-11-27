@@ -1,22 +1,23 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
-import { Patient } from '../shared/patient.model';
-import { PatientService } from '../shared/patient.service';
+import {Component, OnInit} from '@angular/core';
+import {Observable} from 'rxjs/Observable';
+import {Patient} from '../shared/patient.model';
+import {PatientService} from '../shared/patient.service';
 
 class PrimePatient implements Patient {
-    constructor(public name?, public empId?, public city?) {}
+    constructor(public name?, public empId?, public city?) {
+    }
 }
 
 @Component({
-  selector: 'patienttable',
-  templateUrl: './patienttable.component.html'
+    selector: 'patienttable',
+    templateUrl: './patienttable.component.html'
 })
 
 export class PatienttableComponent {
-  qrData = null;
-  createdCode = null;
+    qrData = null;
+    createdCode = null;
 
-  displayDialog: boolean;
+    displayDialog: boolean;
 
     patient: Patient = new PrimePatient();
 
@@ -26,20 +27,22 @@ export class PatienttableComponent {
 
     patients: Patient[];
 
-    constructor(private patientService: PatientService) { }
-
-    ngOnInit() {
-        this.patientService.getPatient().then(patients => this.patients = patients);
+    constructor(private patientService: PatientService) {
     }
 
-	 showDialogToAdd() {
+    ngOnInit() {
+        // this.patientService.getPatient().then(patients => this.patients = patients);
+        this.patients = [];
+    }
+
+    showDialogToAdd() {
         this.newPatient = true;
         this.patient = new PrimePatient();
         this.displayDialog = true;
     }
 
     save() {
-        if(this.newPatient)
+        if (this.newPatient)
             this.patients.push(this.patient);
         else
             this.patients[this.findSelectedPatientIndex()] = this.patient;
@@ -62,7 +65,7 @@ export class PatienttableComponent {
 
     clonePatient(c: Patient): Patient {
         let patient = new PrimePatient();
-        for(let prop in c) {
+        for (let prop in c) {
             patient[prop] = c[prop];
         }
         return patient;
