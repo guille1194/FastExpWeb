@@ -1,37 +1,75 @@
 import { Component, OnInit } from '@angular/core';
-import { PatientService } from '../shared/patient.service';
 import { Observable } from 'rxjs/Observable';
-import { DataSource } from '@angular/cdk/collections';
 import { Patient } from '../shared/patient.model';
+import { PatientService } from '../shared/patient.service';
+
+class PrimePatient implements Patient {
+    constructor(public name?, public empId?, public city?) {}
+}
 
 @Component({
   selector: 'patienttable',
   templateUrl: './patienttable.component.html'
 })
-export class PatienttableComponent implements OnInit {
+
+export class PatienttableComponent {
   qrData = null;
   createdCode = null;
-  dataSource = new PatientDataSource(this.patientService);
-  displayedColumns = ['name', 'email', 'phone', 'company'];
 
-  constructor( private patientService: PatientService) { }
+  displayDialog: boolean;
 
-  ngOnInit() {
-  }
+    patient: Patient = new PrimePatient();
 
-  createCode() {
-     this.createdCode = this.qrData;
-   }
+    selectedPatient: Patient;
 
-}
+    newPatient: boolean;
 
-export class PatientDataSource extends DataSource<any> {
-  constructor( private patientService: PatientService) {
-    super();
-  }
+    patients: Patient[];
 
-  connect(): Observable<Patient[]> {
-    return this.patientService.getPatient();
-  }
-  disconnect() {}
+    constructor(private patientService: PatientService) { }
+
+    ngOnInit() {
+        this.patientService.getPatient().then(patients => this.patients = patients);
+    }
+
+	 showDialogToAdd() {
+        this.newPatient = true;
+        this.patient = new PrimePatient();
+        this.displayDialog = true;
+    }
+
+    save() {
+        if(this.newPatient)
+            this.patients.push(this.patient);
+        else
+            this.patients[this.findSelectedPatientIndex()] = this.patient;
+
+        this.patient = null;
+        this.displayDialog = false;
+    }
+
+    delete() {
+        this.patients.splice(this.findSelectedPatientIndex(), 1);
+        this.patient = null;
+        this.displayDialog = false;
+    }
+
+    onRowSelect(event) {
+        this.newPatient = false;
+        this.patient = this.clonePatient(event.data);
+        this.displayDialog = true;
+    }
+
+    clonePatient(c: Patient): Patient {
+        let patient = new PrimePatient();
+        for(let prop in c) {
+            patient[prop] = c[prop];
+        }
+        return patient;
+    }
+
+    findSelectedPatientIndex(): number {
+        return this.patients.indexOf(this.selectedPatient);
+    }
+
 }

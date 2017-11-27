@@ -12,7 +12,6 @@ import {RegisterModule} from './register/register.module';
 import {PatientModule} from './patienttable/patient.module';
 
 import {HttpClientModule} from '@angular/common/http';
-import {MatTableModule} from '@angular/material';
 import {NgxQRCodeModule} from 'ngx-qrcode2';
 
 @NgModule({
@@ -29,8 +28,7 @@ import {NgxQRCodeModule} from 'ngx-qrcode2';
         RegisterModule,
         PatientModule,
         HttpClientModule,
-        MatTableModule,
-        NgxQRCodeModule,
+        NgxQRCodeModule
     ],
     bootstrap: [AppComponent]
 })

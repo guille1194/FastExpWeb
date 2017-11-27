@@ -1,17 +1,16 @@
-import { Injectable } from '@angular/core';
-import { HttpClient} from '@angular/common/http';
-import { Observable} from 'rxjs/Observable';
+import {Injectable} from '@angular/core';
+import {Http, Response} from '@angular/http';
 import { Patient } from '../shared/patient.model';
 
 @Injectable()
 export class PatientService {
 
-    private serviceUrl = 'https://jsonplaceholder.typicode.com/users';
+    constructor(private http: Http) {}
 
-  constructor( private http: HttpClient) { }
-
-  getPatient(): Observable<Patient[]> {
-    return this.http.get<Patient[]>(this.serviceUrl);
-  }
-
+    getPatient() {
+        return this.http.get('app/patients.json')
+                    .toPromise()
+                    .then(res => <Patient[]> res.json().data)
+                    .then(data => { return data; });
+    }
 }

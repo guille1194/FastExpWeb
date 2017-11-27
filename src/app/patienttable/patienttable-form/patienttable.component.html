@@ -1,26 +1,32 @@
 <div>
-  <mat-table [dataSource]="dataSource">
-    <ng-container matColumnDef="name">
-      <mat-header-cell *matHeaderCellDef> Nombre </mat-header-cell>
-      <mat-cell *matCellDef="let patient"> {{patient.name}}</mat-cell>
-    </ng-container>
-      <ng-container matColumnDef="email">
-        <mat-header-cell *matHeaderCellDef> Correo </mat-header-cell>
-        <mat-cell *matCellDef="let patient"> {{patient.email}}</mat-cell>
-      </ng-container>
-    <ng-container matColumnDef="phone">
-      <mat-header-cell *matHeaderCellDef> Telefono </mat-header-cell>
-      <mat-cell *matCellDef="let patient"> {{patient.phone}}</mat-cell>
-    </ng-container>
-    <ng-container matColumnDef="company">
-      <mat-header-cell *matHeaderCellDef> Compania </mat-header-cell>
-      <mat-cell *matCellDef="let patient"> {{patient.company.name}}</mat-cell>
-    </ng-container>
-    <ng-container matColumnDef="QR">
-      <mat-header-cell *matHeaderCellDef> Generar QR </mat-header-cell>
-      <button (click)="createCode()">Crear Codigo</button>
-    </ng-container>
-    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
-  </mat-table>
+    <p-dataTable [value]="patients" selectionMode="single" [(selection)]="selectedPatient" (onRowSelect)="onRowSelect($event)" [paginator]="true" [rows]="10" [responsive]="true">
+        <header>Patient Management Service</header>
+        <p-column field="name" header="name" [sortable]="true"></p-column>
+        <p-column field="empId" header="empId" [sortable]="true"></p-column>
+        <p-column field="city" header="city" [sortable]="true"></p-column>
+        <footer><div class="ui-helper-clearfix" style="width:100%"><button type="button" pButton icon="fa-plus" style="float:left" (click)="showDialogToAdd()" label="Add"></button></div></footer>
+    </p-dataTable>
+
+    <p-dialog header="Patient Details" [(visible)]="displayDialog" [responsive]="true" showEffect="fade" [modal]="true">
+        <div class="ui-grid ui-grid-responsive ui-fluid ui-grid-pad" *ngIf="patient">
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-4"><label for="name">name</label></div>
+                <div class="ui-grid-col-8"><input pInputText id="name" [(ngModel)]="patient.name" /></div>
+            </div>
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-4"><label for="empId">empId</label></div>
+                <div class="ui-grid-col-8"><input pInputText id="brand" [(ngModel)]="patient.empId" /></div>
+            </div>
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-4"><label for="city">city</label></div>
+                <div class="ui-grid-col-8"><input pInputText id="brand" [(ngModel)]="patient.city" /></div>
+            </div>
+        </div>
+		<footer>
+            <div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix">
+                <button type="button" pButton icon="fa-close" (click)="delete()" label="Delete"></button>
+                <button type="button" pButton icon="fa-check" (click)="save()" label="Save"></button>
+            </div>
+        </footer>
+    </p-dialog>
 </div>
