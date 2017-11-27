@@ -1,17 +1,18 @@
-import { Injectable } from '@angular/core';
-import { Http} from '@angular/http';
-import { environment } from '../../../environments/environment';
-import { AuthService } from '../../core/services/auth.service';
-import { LoginConstants } from '../shared/login.config';
+import {Injectable} from '@angular/core';
+import {Http} from '@angular/http';
+import {environment} from '../../../environments/environment';
+import {AuthService} from '../../core/services/auth.service';
+import {LoginConstants} from '../shared/login.config';
 
 import 'rxjs/add/operator/map';
 
 @Injectable()
 export class LoginService {
     constructor(private http: Http,
-                private authService: AuthService) { }
+                private authService: AuthService) {
+    }
 
-    signIn(userName: string, password: string ){
+    signIn(userName: string, password: string) {
         let url = environment.apiUrl + LoginConstants.API_SIGN_IN;
 
         let options = this.authService.getRequestOptions();
@@ -25,7 +26,6 @@ export class LoginService {
             .map(response => {
                 response = response.json();
 
-                console.log(response);
                 localStorage.setItem('currentUser', JSON.stringify(response));
 
                 return response;
