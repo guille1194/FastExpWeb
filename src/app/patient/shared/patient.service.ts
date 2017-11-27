@@ -21,6 +21,9 @@ export class PatientService {
         let options = this.authService.getRequestOptions();
 
         return this.http.get(url, options)
-            .map(this.utilitiesService.extractDataFromJSON);
+            .map(res => {
+                let data = this.utilitiesService.extractDataFromJSON(res);
+                return data.patients;
+            });
     }
 }
