@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
 import {Patient} from '../shared/patient.model';
 import {PatientService} from '../shared/patient.service';
 
@@ -17,7 +18,8 @@ export class PatientListComponent {
     newPatient: boolean;
 
 
-    constructor(private patientService: PatientService) {
+    constructor(private patientService: PatientService,
+                private  router: Router) {
         this.patient = new Patient();
     }
 
@@ -38,10 +40,9 @@ export class PatientListComponent {
                 });
     }
 
-    // showDialogToAdd() {
-    //     this.newPatient = true;
-    //     this.displayDialog = true;
-    // }
+   showDialogToAdd() {
+     this.router.navigate(['createpatient']);
+   }
 
     // save() {
     //     if (this.newPatient)
