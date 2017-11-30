@@ -7,6 +7,7 @@ import 'rxjs/add/operator/toPromise';
 
 import {PatientRoutingModule} from './patient-routing.module';
 import {PatientListComponent} from './patient-list/patient-list.component';
+import { PatientCreateComponent } from './patient-create/patient.create.component';
 import {PatientService} from './shared/patient.service';
 
 import {InputTextModule, DataTableModule, ButtonModule, DialogModule} from 'primeng/primeng';
@@ -26,7 +27,8 @@ import {UtilitiesService} from "../core/services/utilities.service";
         DialogModule
     ],
     declarations: [
-        PatientListComponent
+        PatientListComponent,
+        PatientCreateComponent
     ],
     providers: [
         PatientService,
