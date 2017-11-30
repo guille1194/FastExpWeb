@@ -30,7 +30,6 @@ export class PatientListComponent {
             .subscribe(
                 data => {
                     this.patients = data;
-                    console.log(this.patients);
                 },
                 error => {
                     this.patients = [];
