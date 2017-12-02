@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from '../core/guards/auth.guard';
 import { PatientConstants } from './shared/patient.config';
 import { PatientListComponent } from './patient-list/patient-list.component';
-import { PatientCreateComponent } from './patient-create/patient.create.component';
+import { PatientFormComponent } from './patient-form/patient-form.component';
 
 const patientRoutes: Routes = [
     {
@@ -17,7 +17,7 @@ const patientRoutes: Routes = [
     {
         path: 'createpatient',
         canActivate: [AuthGuard],
-        component: PatientCreateComponent,
+        component: PatientFormComponent,
         data: {
           title: PatientConstants.API_CREATE_PATIENT
         }

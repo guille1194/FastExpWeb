@@ -1,8 +1,0 @@
-{
-    "data":[
-        {"name":"javainuse1","empId":"J12","city":"city1"},
-         {"name":"javainuse2","empId":"J13","city":"city2"},
-        {"name":"javainuse3","empId":"J14","city":"city3"},
-       {"name":"javainuse4","empId":"J15","city":"city4"}
-    ]
-}
