@@ -13,10 +13,13 @@ import {PatientModule} from './patient/patient.module';
 
 import {HttpClientModule} from '@angular/common/http';
 import {NgxQRCodeModule} from 'ngx-qrcode2';
+import { MatMenuModule, MatButtonModule, MatIconModule, MatCardModule, MatSidenavModule, MatToolbarModule, MatListModule } from '@angular/material';
+import { SidenavComponent } from './sidenav/sidenav.component';
 
 @NgModule({
     declarations: [
-        AppComponent
+        AppComponent,
+        SidenavComponent
     ],
     imports: [
         BrowserModule,
@@ -28,7 +31,14 @@ import {NgxQRCodeModule} from 'ngx-qrcode2';
         RegisterModule,
         PatientModule,
         HttpClientModule,
-        NgxQRCodeModule
+        NgxQRCodeModule,
+        MatMenuModule,
+        MatButtonModule,
+        MatIconModule,
+        MatCardModule,
+        MatSidenavModule,
+        MatToolbarModule,
+        MatListModule
     ],
     bootstrap: [AppComponent]
 })
