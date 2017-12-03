@@ -12,7 +12,7 @@ import {AppRoutingModule} from '../app-routing.module';
         AppRoutingModule
     ],
     exports: [
-        AppRoutingModule
+        AppRoutingModule,
     ],
     declarations: [],
     providers: [
