@@ -1,12 +1,7 @@
 <section class="container">
-  <h1>FASTEXP</h1>
-  <div class="tabs">
-    <span class="tab signin"><a [routerLink]="['/login']">Iniciar</a></span>
-    <span class="tab signup active"><a [routerLink]="['/register']">Registrarse</a></span>
-  </div>
   <div class="content">
     <div class="signin-cont cont">
-      <form [formGroup]="personalformGroup" (ngSubmit)="createPatients()">
+      <form [formGroup]="patientFormGroup" (ngSubmit)="save()">
         <fieldset>
           <div class="form-group">
             <input [(ngModel)]="patient.personal.name" name="name" #name formControlName="name"
@@ -18,54 +13,14 @@
           </div>
           <div class="form-group">
             <input [(ngModel)]="patient.personal.birthDate" name="birthDate" #birthDate formControlName="birthDate"
-                   class="form-control inpt" placeholder="birthDate" type="text">
+                   class="form-control inpt" placeholder="birthDate" type="date">
           </div>
           <div class="form-group">
-            <input [(ngModel)]="patient.personal.addresses" name="addresses" #userName formControlName="addresses"
-                   class="form-control inpt" placeholder="street" type="text">
-          </div>
-          <div class="form-group">
-            <input [(ngModel)]="patient.personal.addresses" name="addresses" #userName formControlName="addresses"
-                   class="form-control inpt" placeholder="number" type="text">
-          </div>
-          <div class="form-group">
-            <input [(ngModel)]="patient.personal.addresses" name="addresses" #userName formControlName="addresses"
-                   class="form-control inpt" placeholder="locality" type="text">
-          </div>
-          <div class="form-group">
-            <input [(ngModel)]="patient.personal.addresses" name="addresses" #userName formControlName="addresses"
-                   class="form-control inpt" placeholder="county" type="text">
-          </div>
-          <div class="form-group">
-            <input [(ngModel)]="patient.personal.addresses" name="addresses" #userName formControlName="addresses"
-                   class="form-control inpt" placeholder="state" type="text">
-          </div>
-          <div class="form-group">
-            <input [(ngModel)]="patient.personal.addresses" name="addresses" #userName formControlName="addresses"
-                   class="form-control inpt" placeholder="country" type="text">
-          </div>
-          <div class="form-group">
-            <input [(ngModel)]="patient.personal.addresses" name="addresses" #userName formControlName="addresses"
-                   class="form-control inpt" placeholder="zipCode" type="text">
-          </div>
-          <div class="form-group">
-            <input [(ngModel)]="patient.personal.phoneNumbers" name="phoneNumbers" #userName
-                   formControlName="phoneNumbers" class="form-control inpt" placeholder="phoneNumbers" type="text">
-          </div>
-          <div class="form-group">
-            <input [(ngModel)]="personal.emergencyContacts" name="emergencyContacts" #userName
-                   formControlName="emergencyContacts" class="form-control inpt" placeholder="zipCode" type="text">
-          </div>
-          <div class="form-group">
-            <input [(ngModel)]="personal.emergencyContacts" name="emergencyContacts" #userName
-                   formControlName="emergencyContacts" class="form-control inpt" placeholder="zipCode" type="text">
-          </div>
-          <div class="form-group">
-            <input [(ngModel)]="personal.emergencyContacts" name="emergencyContacts" #userName
-                   formControlName="emergencyContacts" class="form-control inpt" placeholder="zipCode" type="text">
+            <input [(ngModel)]="patient.medical.bloodType" name="bloodType" #bloodType formControlName="bloodType"
+                   class="form-control inpt" placeholder="Blood Type" type="text">
           </div>
           <div class="btn-toolbar">
-            <input [disabled]="!formGroup.valid" class="btn btn-primary submit" type="submit" value="SignUp">
+            <input [disabled]="!patientFormGroup.valid" class="btn btn-primary submit" type="submit" value="Save">
           </div>
         </fieldset>
       </form>
