@@ -4,23 +4,113 @@
       <form [formGroup]="patientFormGroup" (ngSubmit)="save()">
         <fieldset>
           <div class="form-group">
+            <h3>Datos Generales</h3>
+          </div>
+          <div class="form-group">
             <input [(ngModel)]="patient.personal.name" name="name" #name formControlName="name"
-                   class="form-control inpt" placeholder="Name" type="text">
+                   class="form-control inpt" placeholder="Nombre(s)" type="text">
           </div>
           <div class="form-group">
             <input [(ngModel)]="patient.personal.lastName" name="lastName" #lastName formControlName="lastName"
-                   class="form-control inpt" placeholder="Last Name" type="text">
+                   class="form-control inpt" placeholder="Apellido(s)" type="text">
           </div>
           <div class="form-group">
             <input [(ngModel)]="patient.personal.birthDate" name="birthDate" #birthDate formControlName="birthDate"
-                   class="form-control inpt" placeholder="birthDate" type="date">
+                   class="form-control inpt" placeholder="Fecha de Nacimiento" type="date">
+          </div>
+          <div class="form-group">
+            <input [(ngModel)]="patient.personal.phoneNumbers[0]" name="phoneNumber" #phoneNumber formControlName="phoneNumber"
+                   class="form-control inpt" placeholder="Numero de Telefono" type="text">
+          </div>
+          <div class="form-group">
+            <h4>Direccion</h4>
+          </div>
+          <div class="form-group">
+            <input [(ngModel)]="patient.personal.addresses[0].street" name="street" #street formControlName="street"
+                   class="form-control inpt" placeholder="Calle" type="text">
+          </div>
+          <div class="form-group">
+            <input [(ngModel)]="patient.personal.addresses[0].number" name="number" #number formControlName="number"
+                   class="form-control inpt" placeholder="Numero Interior" type="text">
+          </div>
+          <div class="form-group">
+            <input [(ngModel)]="patient.personal.addresses[0].locality" name="locality" #locality
+                   formControlName="locality"
+                   class="form-control inpt" placeholder="Colonia o Localidad" type="text">
+          </div>
+          <div class="form-group">
+            <input [(ngModel)]="patient.personal.addresses[0].county" name="county" #county formControlName="county"
+                   class="form-control inpt" placeholder="Municipio o Condado" type="text">
+          </div>
+          <div class="form-group">
+            <input [(ngModel)]="patient.personal.addresses[0].state" name="state" #state formControlName="state"
+                   class="form-control inpt" placeholder="Estado o Provincia" type="text">
+          </div>
+          <div class="form-group">
+            <input [(ngModel)]="patient.personal.addresses[0].country" name="country" #country formControlName="country"
+                   class="form-control inpt" placeholder="Pais" type="text">
+          </div>
+          <div class="form-group">
+            <input [(ngModel)]="patient.personal.addresses[0].zipCode" name="zipCode" #zipCode formControlName="zipCode"
+                   class="form-control inpt" placeholder="Codigo Postal" type="text">
+          </div>
+          <div class="form-group">
+            <h4>Contacto de Emergencia</h4>
+          </div>
+          <div class="form-group">
+            <input [(ngModel)]="patient.personal.emergencyContacts[0].name" name="contactName" #contactName formControlName="contactName"
+                   class="form-control inpt" placeholder="Nombre(s)" type="text">
+          </div>
+          <div class="form-group">
+            <input [(ngModel)]="patient.personal.emergencyContacts[0].lastName" name="contactLastName" #contactLastName formControlName="contactLastName"
+                   class="form-control inpt" placeholder="Apellido(s)" type="text">
+          </div>
+          <div class="form-group">
+            <input [(ngModel)]="patient.personal.emergencyContacts[0].phoneNumbers[0]" name="contactPhoneNumber" #contactPhoneNumber formControlName="contactPhoneNumber"
+                   class="form-control inpt" placeholder="Numero de Telefono" type="text">
+          </div>
+          <div class="form-group">
+            <h3>Datos Medicos</h3>
           </div>
           <div class="form-group">
             <input [(ngModel)]="patient.medical.bloodType" name="bloodType" #bloodType formControlName="bloodType"
-                   class="form-control inpt" placeholder="Blood Type" type="text">
+                   class="form-control inpt" placeholder="Tipo de Sangre" type="text">
+          </div>
+          <div class="form-group">
+            <h4>Enfermedades Cronicas</h4>
+          </div>
+          <div class="form-group">
+            <input [(ngModel)]="patient.medical.chronicDiseases[0].name" name="chronicDiseaseName" #chronicDiseaseName formControlName="chronicDiseaseName"
+                   class="form-control inpt" placeholder="Nombre(s)" type="text">
+          </div>
+          <div class="form-group">
+            <input [(ngModel)]="patient.medical.chronicDiseases[0].treatments[0]" name="chronicDiseaseTreatment" #chronicDiseaseTreatment formControlName="chronicDiseaseTreatment"
+                   class="form-control inpt" placeholder="Tratamiento(s)" type="text">
+          </div>
+          <div class="form-group">
+            <h4>Alergias</h4>
+          </div>
+          <div class="form-group">
+            <input [(ngModel)]="patient.medical.allergies[0].name" name="allergyName" #allergyName formControlName="allergyName"
+                   class="form-control inpt" placeholder="Nombre(s)" type="text">
+          </div>
+          <div class="form-group">
+            <input [(ngModel)]="patient.medical.allergies[0].treatments[0]" name="allergyTreatment" #allergyTreatment formControlName="allergyTreatment"
+                   class="form-control inpt" placeholder="Tratamiento(s)" type="text">
+          </div>
+          <div class="form-group">
+            <h4>Discapacidades</h4>
+          </div>
+          <div class="form-group">
+            <input [(ngModel)]="patient.medical.disabilities[0].name" name="disabilityName" #disabilityName formControlName="disabilityName"
+                   class="form-control inpt" placeholder="Nombre(s)" type="text">
+          </div>
+          <div class="form-group">
+            <input [(ngModel)]="patient.medical.disabilities[0].treatments[0]" name="disabilityTreatment" #disabilityTreatment formControlName="disabilityTreatment"
+                   class="form-control inpt" placeholder="Tratamiento(s)" type="text">
           </div>
           <div class="btn-toolbar">
-            <input [disabled]="!patientFormGroup.valid" class="btn btn-primary submit" type="submit" value="Save">
+            <input [disabled]="!patientFormGroup.valid" class="btn btn-primary submit" type="submit" value="Guardar">
           </div>
         </fieldset>
       </form>
