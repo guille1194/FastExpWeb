@@ -14,7 +14,7 @@ export class PatientService {
 
   constructor(private http: Http,
               private authService: AuthService,
-              private  utilitiesService: UtilitiesService) {
+              private utilitiesService: UtilitiesService) {
   }
 
   getAllPatients(): Observable<Patient[]> {
