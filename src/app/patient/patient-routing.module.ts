@@ -8,6 +8,7 @@ import {PatientFormComponent} from './patient-form/patient-form.component';
 const patientRoutes: Routes = [
   {
     path: 'patient',
+    pathMatch: 'full',
     canActivate: [AuthGuard],
     component: PatientListComponent,
     data: {
@@ -16,6 +17,7 @@ const patientRoutes: Routes = [
   },
   {
     path: 'patient/create',
+    pathMatch: 'full',
     canActivate: [AuthGuard],
     component: PatientFormComponent,
     data: {
