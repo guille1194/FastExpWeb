@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http} from '@angular/http';
-import { environment } from '../../../environments/environment';
+import { environment } from '../../../environments/environment.prod';
 import { AuthService } from '../../core/services/auth.service';
 import { RegisterConstants } from '../shared/register.config';
 
