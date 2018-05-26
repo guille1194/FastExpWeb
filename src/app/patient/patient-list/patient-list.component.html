@@ -1,12 +1,13 @@
 <div>
     <p-dataTable [value]="patients" selectionMode="single" [(selection)]="selectedPatient" (onRowSelect)="onRowSelect($event)" [paginator]="true" [rows]="10" [responsive]="true">
-        <header>Patients List</header>
-        <p-column field="personal.name" header="First Name" [sortable]="true"></p-column>
-        <p-column field="personal.lastName" header="Last Name" [sortable]="true"></p-column>
-        <p-column field="medical.bloodType" header="Blood Type" [sortable]="true"></p-column>
+        <header>Lista de pacientes</header>
+        <p-column field="personal.name" header="Nombre" [sortable]="true"></p-column>
+        <p-column field="personal.lastName" header="Apellido" [sortable]="true"></p-column>
+        <p-column field="personal.phoneNumbers" header="Telefono" [sortable]="true"></p-column>
+        <p-column field="medical.bloodType" header="Tipo de sangre" [sortable]="true"></p-column>
         <p-footer>
             <div class="ui-helper-clearfix" style="width:100%">
-                <button type="button" pButton icon="fa-plus" style="float:left" (click)="addPatient()" label="Add"></button>
+                <button type="button" pButton icon="fa-plus" style="float:left" (click)="addPatient()" label="Agregar paciente"></button>
             </div>
         </p-footer>
     </p-dataTable>
